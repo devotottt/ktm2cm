@@ -8,6 +8,7 @@
 #include "settings.h"
 #include "mastersthread.h"
 #include "paramwidget.h"
+#include "digitalparamwidget.h"
 
 namespace Ui {
 class DisplayPanel;
@@ -40,6 +41,9 @@ private:
     bool isConnected_;
     QMutex mutex_;
     QVector<ParamWidget*> paramWidgetVector_;
+    QVector<DigitalParamWidget*> b71WidgetVector_;
+    QVector<DigitalParamWidget*> b72WidgetVector_;
+    QVector<DigitalParamWidget*> b75WidgetVector_;
 };
 
 #endif // DISPLAYPANEL_H

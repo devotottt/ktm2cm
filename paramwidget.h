@@ -14,8 +14,9 @@ class ParamWidget : public QWidget
 
 public:
     explicit ParamWidget(QWidget *parent, QString shortName,
-                         int lLimit, int hLimit,
-                         int lwLimit, int hwLimit);
+                         double lLimit, double hLimit,
+                         double lwLimit, double hwLimit,
+                         int precision);
     ~ParamWidget();
 
     void setValue(const unsigned unitValue);
@@ -24,11 +25,12 @@ public:
 private:
     Ui::ParamWidget *ui;
     QString shortName_;
-    int lLimit_;
-    int hLimit_;
-    int lwLimit_;
-    int hwLimit_;
-    int value_;
+    double lLimit_;
+    double hLimit_;
+    double lwLimit_;
+    double hwLimit_;
+    double value_;
+    int precision_;
 };
 
 #endif // PARAMWIDGET_H

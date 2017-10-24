@@ -3,8 +3,9 @@
 #include <math.h>
 
 ParamWidget::ParamWidget(QWidget *parent, QString shortName,
-                         int lLimit, int hLimit,
-                         int lwLimit, int hwLimit) :
+                         double lLimit, double hLimit,
+                         double lwLimit, double hwLimit,
+                         int precision) :
     QWidget(parent),
     ui(new Ui::ParamWidget)
 {
@@ -14,10 +15,11 @@ ParamWidget::ParamWidget(QWidget *parent, QString shortName,
     hLimit_ = hLimit;
     lwLimit_ = lwLimit;
     hwLimit_ = hwLimit;
+    precision_ = precision;
     value_ = 0;
 
     ui->shortName->setText(shortName_);
-    ui->value->setText(QString("0"));
+    ui->value->setText(QString("%1").arg(0.0, 0, 'f', precision_));
 }
 
 ParamWidget::~ParamWidget()
@@ -25,12 +27,12 @@ ParamWidget::~ParamWidget()
     delete ui;
 }
 void ParamWidget::setValue(const unsigned unitValue){
-    value_ = lLimit_ + round(((double)unitValue*(hLimit_ - lLimit_))/65535);
+    value_ = lLimit_ + (((double)unitValue*(hLimit_ - lLimit_))/65535);
     if (value_ <= hwLimit_ && value_ >= lwLimit_)
         ui->value->setStyleSheet("QLabel { background-color : transparent; color : black; }");
     else
         ui->value->setStyleSheet("QLabel { background-color : #c54242; color : white; }");
-    ui->value->setText(QString("%1").arg(value_));
+    ui->value->setText(QString("%1").arg(value_, 0, 'f', precision_));
 
 }
 

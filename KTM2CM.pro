@@ -29,17 +29,20 @@ SOURCES += \
     displaypanel.cpp \
     mastersthread.cpp \
     paramwidget.cpp \
-    settings.cpp
+    settings.cpp \
+    digitalparamwidget.cpp
 
 HEADERS += \
         mainwindow.h \
     displaypanel.h \
     mastersthread.h \
     paramwidget.h \
-    settings.h
+    settings.h \
+    digitalparamwidget.h
 
 FORMS += \
         mainwindow.ui \
     displaypanel.ui \
     paramwidget.ui \
-    settings.ui
+    settings.ui \
+    digitalparamwidget.ui
