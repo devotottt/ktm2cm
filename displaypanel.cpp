@@ -85,6 +85,12 @@ DisplayPanel::~DisplayPanel()
     }
     for (int i = 0; i < paramWidgetVector_.length(); ++i)
         delete paramWidgetVector_.at(i);
+    for (int i = 0; i < b71WidgetVector_.length(); ++i)
+        delete b71WidgetVector_.at(i);
+    for (int i = 0; i < b72WidgetVector_.length(); ++i)
+        delete b72WidgetVector_.at(i);
+    for (int i = 0; i < b75WidgetVector_.length(); ++i)
+        delete b75WidgetVector_.at(i);
     delete ui;
 }
 bool DisplayPanel::connectToPort(const PortSettings& portSettings, QString& errStr){
