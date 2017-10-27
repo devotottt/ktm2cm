@@ -16,7 +16,8 @@ public:
     explicit ParamWidget(QWidget *parent, QString shortName,
                          double lLimit, double hLimit,
                          double lwLimit, double hwLimit,
-                         int precision);
+                         int precision,
+                         int factor = 1);
     ~ParamWidget();
 
     void setValue(const unsigned unitValue);
@@ -31,6 +32,7 @@ private:
     double hwLimit_;
     double value_;
     int precision_;
+    int factor_;
 };
 
 #endif // PARAMWIDGET_H

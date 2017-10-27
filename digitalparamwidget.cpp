@@ -1,7 +1,8 @@
 #include "digitalparamwidget.h"
 #include "ui_digitalparamwidget.h"
 
-DigitalParamWidget::DigitalParamWidget(QWidget *parent, QString bitName, QString bitShortName, bool normalBit, bool isEmergencyExist, int bitPosition) :
+DigitalParamWidget::DigitalParamWidget(QWidget *parent, QString bitName, QString bitShortName, bool normalBit,
+                                       bool isEmergencyExist, int bitPosition, QString trueText, QString falseText) :
     QWidget(parent),
     ui(new Ui::DigitalParamWidget)
 {
@@ -11,9 +12,11 @@ DigitalParamWidget::DigitalParamWidget(QWidget *parent, QString bitName, QString
     normalBit_ = normalBit;
     bitPosition_ = bitPosition;
     isEmergencyExist_ = isEmergencyExist;
+    trueText_ = trueText;
+    falseText_ = falseText;
     ui->shortName->setText(bitShortName_);
     ui->name->setText(bitName_);
-    ui->value->setText(QString("0"));
+    ui->value->setText("-");
 }
 
 DigitalParamWidget::~DigitalParamWidget()
@@ -27,5 +30,5 @@ void DigitalParamWidget::setValue(unsigned byteValue){
         ui->value->setStyleSheet("QLabel { background-color : transparent; color : black; }");
     else
         ui->value->setStyleSheet("QLabel { background-color : #c54242; color : white; }");
-    ui->value->setText(QString("%1").arg((int)value_));
+    ui->value->setText(value_?trueText_:falseText_);
 }

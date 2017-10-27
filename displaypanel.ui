@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>737</width>
-    <height>224</height>
+    <width>748</width>
+    <height>232</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -35,7 +35,7 @@
        </font>
       </property>
       <property name="title">
-       <string>Темпер. радиаторов усилителей мощности, ºС</string>
+       <string>Температура контрольных точек, ºС</string>
       </property>
       <property name="flat">
        <bool>false</bool>
@@ -77,7 +77,7 @@
        </font>
       </property>
       <property name="title">
-       <string>Модуль осевого перемещения ротора, мм</string>
+       <string>Модуль осевого перемещения ротора, мкм</string>
       </property>
       <property name="flat">
        <bool>false</bool>
@@ -135,7 +135,7 @@
        </font>
       </property>
       <property name="title">
-       <string>Модуль рад. перемещения ротора, мм</string>
+       <string>Модуль рад. перемещения ротора, мкм</string>
       </property>
       <property name="flat">
        <bool>false</bool>
@@ -164,7 +164,7 @@
        </font>
       </property>
       <property name="title">
-       <string>Ток приборного питания, А</string>
+       <string>Напряжение резервной сети, В</string>
       </property>
       <property name="flat">
        <bool>false</bool>
@@ -376,7 +376,7 @@
          </font>
         </property>
         <property name="title">
-         <string>Состояние перегрузка/авария</string>
+         <string>Состояние предупреждение/авария</string>
         </property>
         <property name="flat">
          <bool>false</bool>

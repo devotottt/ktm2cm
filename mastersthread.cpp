@@ -28,7 +28,8 @@ void MastersThread::run(){
     request.append(*deviceAddress_ & 0xff);
     mutex_->unlock();
     request.append(messageFunctionCode_ & 0xff);
-    request.append(QByteArray::fromRawData("\x9c\x41\x00\x25", 4));
+    //request.append(QByteArray::fromRawData("\x9c\x41\x00\x25", 4));
+    request.append(QByteArray::fromRawData("\x00\x00\x00\x25", 4));
     unsigned crc = getCrc(request);
     request.append(crc & 0xff);
     request.append((crc>>8) & 0xff);
@@ -44,7 +45,7 @@ void MastersThread::run(){
                 // read response
                 if (serialPort_->waitForReadyRead(readWaitTimeout_)) {
                     QByteArray responseData = serialPort_->readAll();
-                    while (serialPort_->waitForReadyRead(10))
+                    while (serialPort_->waitForReadyRead(20))
                         responseData += serialPort_->readAll();
                     mutex_->unlock();
                     if (!checkCrc(responseData))
@@ -75,6 +76,7 @@ void MastersThread::run(){
     qDebug() << "Master thread has stopped";
 }
 unsigned MastersThread::getCrc(const QByteArray& dataArray){
+    //01 03 00 00 00 25 84
     unsigned sum = 0xffff;
     for (int i=0; i < dataArray.length(); ++i){
         sum ^= dataArray[i] & 0xff;

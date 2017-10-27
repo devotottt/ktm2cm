@@ -12,7 +12,7 @@ class DigitalParamWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit DigitalParamWidget(QWidget *parent, QString bitName, QString bitShortName, bool normalBit, bool isEmergencyExist, int bitPosition);
+    explicit DigitalParamWidget(QWidget *parent, QString bitName, QString bitShortName, bool normalBit, bool isEmergencyExist, int bitPosition, QString trueText, QString falseText);
     ~DigitalParamWidget();
 
     void setValue(unsigned byteValue);
@@ -25,6 +25,8 @@ private:
     int bitPosition_;
     QString bitName_;
     QString bitShortName_;
+    QString trueText_;
+    QString falseText_;
 };
 
 #endif // DIGITALPARAMWIDGET_H
